@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering for Developers: A Practical Guide | AI Developer Tools</title>
+    <meta name="description" content="Master the art of prompt engineering. Learn chain-of-thought, few-shot, and role-based techniques to get better results from AI models.">
+    <meta name="keywords" content="prompt engineering, AI prompts, ChatGPT, Claude, developer productivity, AI coding">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #e6edf3; line-height: 1.7; }
+        .article { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .article h1 { font-size: 2.5em; margin-bottom: 20px; background: linear-gradient(90deg, #58a6ff, #f78166); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .article .meta { color: #8b949e; margin-bottom: 40px; }
+        .article h2 { font-size: 1.8em; margin: 40px 0 20px; color: #58a6ff; }
+        .article h3 { font-size: 1.4em; margin: 30px 0 15px; }
+        .article p { margin-bottom: 20px; color: #c9d1d9; }
+        .article ul, .article ol { margin: 20px 0; padding-left: 30px; }
+        .article li { margin-bottom: 10px; color: #c9d1d9; }
+        .article code { background: #161b22; padding: 2px 8px; border-radius: 4px; font-family: 'SFMono-Regular', Consolas, monospace; color: #7ee787; }
+        .article pre { background: #161b22; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 20px 0; }
+        .article pre code { padding: 0; }
+        .cta-box { background: linear-gradient(135deg, #1a1e2e 0%, #2d1b3d 100%); border: 1px solid #30363d; border-radius: 8px; padding: 30px; margin: 40px 0; text-align: center; }
+        .cta-box h3 { margin-bottom: 15px; }
+        .cta-box a { display: inline-block; padding: 12px 24px; background: #238636; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; }
+        .cta-box a:hover { background: #2ea043; }
+        .back-link { display: inline-block; margin-bottom: 30px; color: #58a6ff; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <article class="article">
+        <a href="/blog.html" class="back-link">← Back to Blog</a>
+        
+        <h1>Prompt Engineering for Developers: A Practical Guide</h1>
+        <div class="meta">
+            <span>June 23, 2026</span> · <span>10 min read</span>
+        </div>
+
+        <p>You've probably used ChatGPT or Claude to help with coding. But are you getting the best results? The difference between a mediocre prompt and a great prompt can save you hours of back-and-forth.</p>
+
+        <p>Prompt engineering is the art of communicating effectively with AI models. It's not magic — it's a skill you can learn and practice.</p>
+
+        <h2>Why Prompt Engineering Matters</h2>
+
+        <p>Consider this scenario: You want AI to help you write a function.</p>
+
+        <h3>Bad Prompt</h3>
+        <pre><code>Write a function to sort a list</code></pre>
+
+        <h3>Good Prompt</h3>
+        <pre><code>Write a Python function that sorts a list of dictionaries by the 'date' key in descending order. 
+Handle cases where the key might not exist. 
+Include type hints and docstring.
+Use the datetime module for proper date comparison.</code></pre>
+
+        <p>The bad prompt gives you a generic sort. The good prompt gives you exactly what you need, with edge cases handled.</p>
+
+        <h2>Core Techniques</h2>
+
+        <h3>1. Chain-of-Thought (CoT) Prompting</h3>
+
+        <p>Force the model to show its reasoning step-by-step. This dramatically improves accuracy for complex problems.</p>
+
+        <pre><code>Think step by step to solve this problem:
+
+1. First, understand the requirements
+2. Then, identify the constraints
+3. Next, design the solution
+4. Finally, implement and test
+
+Problem: [Your problem here]</code></pre>
+
+        <p>When you ask the model to "think step by step," it doesn't skip important details. It walks through the logic like a senior developer would.</p>
+
+        <h3>2. Few-Shot Prompting</h3>
+
+        <p>Provide examples of what you want. The model learns from these examples and generates similar output.</p>
+
+        <pre><code>Here are some examples of good commit messages:
+
+Example 1:
+Input: Changed the login function to handle SSO
+Output: feat(auth): add SSO support to login flow
+
+Example 2:
+Input: Fixed the bug where users couldn't reset password
+Output: fix(auth): resolve password reset token validation
+
+Example 3:
+Input: Updated the README with installation instructions
+Output: docs(readme): add installation guide
+
+Now, write a commit message for:
+Input: Added rate limiting to the API endpoints</code></pre>
+
+        <p>The model sees the pattern and generates a consistent message.</p>
+
+        <h3>3. Role-Based Prompting</h3>
+
+        <p>Assign a specific role to the model. This changes how it approaches the problem.</p>
+
+        <pre><code>You are a senior security engineer with 15 years of experience.
+You specialize in Python web applications.
+You are reviewing code for a financial services company.
+
+Review this code for security vulnerabilities:
+[Your code here]</code></pre>
+
+        <p>When the model thinks like a security engineer, it catches security issues it might otherwise miss.</p>
+
+        <h3>4. Output Formatting</h3>
+
+        <p>Control exactly how the response is structured.</p>
+
+        <pre><code>Analyze this code and respond in the following format:
+
+## Issues Found
+- [SEVERITY] Issue description
+
+## Suggested Fixes
+```code
+// Fixed code here
+```
+
+## Prevention
+How to prevent this in the future
+
+Code:
+[Your code here]</code></pre>
+
+        <h2>Advanced Techniques</h2>
+
+        <h3>Persona Stacking</h3>
+
+        <p>Ask the model to analyze from multiple perspectives simultaneously:</p>
+
+        <pre><code>You are simultaneously:
+1. A senior developer (reviewing code quality)
+2. A security expert (checking vulnerabilities)
+3. A performance engineer (optimizing speed)
+
+Analyze this code from all three perspectives.</code></pre>
+
+        <h3>Self-Consistency</h3>
+
+        <p>Generate multiple solutions and pick the best:</p>
+
+        <pre><code>Generate 3 different approaches to solve this problem:
+
+Approach 1: [Method]
+Approach 2: [Method]
+Approach 3: [Method]
+
+Now, evaluate each approach:
+- Pros and cons
+- Feasibility
+- Expected outcome
+
+Select the best approach and explain why.</code></pre>
+
+        <h2>Common Pitfalls to Avoid</h2>
+
+        <h3>❌ Vague Prompts</h3>
+        <p><strong>Bad:</strong> "Write about dogs"</p>
+        <p><strong>Good:</strong> "Write a 500-word article about the top 5 dog breeds for families with young children, including temperament, size, and care requirements"</p>
+
+        <h3>❌ No Context</h3>
+        <p><strong>Bad:</strong> "Fix this code"</p>
+        <p><strong>Good:</strong> "This Python function should sort a list of dictionaries by the 'date' key, but it's throwing a KeyError. Here's the code: [CODE]"</p>
+
+        <h3>❌ Overloading</h3>
+        <p><strong>Bad:</strong> "Write a blog post, create social media content, and design an email campaign"</p>
+        <p><strong>Good:</strong> Start with one task, then iterate</p>
+
+        <h2>Quick Reference Card</h2>
+
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="border-bottom: 1px solid #30363d;">
+                <th style="text-align: left; padding: 12px; color: #58a6ff;">Goal</th>
+                <th style="text-align: left; padding: 12px; color: #58a6ff;">Technique</th>
+                <th style="text-align: left; padding: 12px; color: #58a6ff;">Example</th>
+            </tr>
+            <tr style="border-bottom: 1px solid #30363d;">
+                <td style="padding: 12px;">Complex reasoning</td>
+                <td style="padding: 12px;">Chain-of-thought</td>
+                <td style="padding: 12px;">"Think step by step"</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #30363d;">
+                <td style="padding: 12px;">Specific format</td>
+                <td style="padding: 12px;">Output template</td>
+                <td style="padding: 12px;">JSON, table, list</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #30363d;">
+                <td style="padding: 12px;">Consistent style</td>
+                <td style="padding: 12px;">Few-shot</td>
+                <td style="padding: 12px;">3-5 examples</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #30363d;">
+                <td style="padding: 12px;">Expertise level</td>
+                <td style="padding: 12px;">Role assignment</td>
+                <td style="padding: 12px;">"You are a..."</td>
+            </tr>
+            <tr>
+                <td style="padding: 12px;">Concise answers</td>
+                <td style="padding: 12px;">Constraints</td>
+                <td style="padding: 12px;">"In 3 sentences..."</td>
+            </tr>
+        </table>
+
+        <div class="cta-box">
+            <h3>Get 100+ Ready-to-Use Prompts</h3>
+            <p>Don't write prompts from scratch. Use our battle-tested templates for every use case.</p>
+            <a href="https://zzcwhisper4.gumroad.com/l/pbktp">Get the Prompt Kit →</a>
+        </div>
+
+        <h2>Conclusion</h2>
+
+        <p>Prompt engineering is a skill that pays dividends. The better you communicate with AI, the more productive you become.</p>
+
+        <p>Start with the basics: be specific, provide context, and use examples. As you practice, you'll develop intuition for what works and what doesn't.</p>
+
+        <p>Remember: the goal isn't to write the perfect prompt on the first try. It's to iterate quickly and get useful output faster.</p>
+    </article>
+</body>
+</html>
